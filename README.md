@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 基于create-react-app定制的模板
 
+
+## 参考资料
+
+### redux
+
++ https://github.com/ellbee/redux-boilerplate
+
+
 ## Available Scripts
 
 In the project directory, you can run:
