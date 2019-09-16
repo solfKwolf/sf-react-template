@@ -29,6 +29,13 @@ externals: {
 },
 ```
 
+### 遇到的小坑
+
+> React is not defined
+
+选择UMD版本
+
+
 # Available Scripts
 
 In the project directory, you can run:
