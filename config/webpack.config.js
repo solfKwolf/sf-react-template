@@ -312,6 +312,10 @@ module.exports = function(webpackEnv) {
         PnpWebpackPlugin.moduleLoader(module),
       ],
     },
+    externals: {
+      'react': 'React',
+      'react-dom': 'ReactDOM'
+    },
     module: {
       strictExportPresence: true,
       rules: [
