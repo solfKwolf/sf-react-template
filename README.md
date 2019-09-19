@@ -36,6 +36,47 @@ externals: {
 选择UMD版本
 
 
+# antd 
+
+实现antd的按需加载
+
+```js
+// 方法一 配置webpack.config.js
+{
+    test: /.jsx?$/,
+    exclude: /(node_modules|bower_components)/,
+    use: [{
+        loader: 'babel-loader'
+    }],
+    options: {
+        "plugins": [
+            [
+                "import", {
+                    "libraryName": "antd",
+                    "style": true
+                }
+            ]
+        ]
+    }
+}
+
+// 方法二 配置babelrc文件
+{
+  "presets": ["env", "react"],
+  "plugins": [
+    "transform-runtime",
+    "transform-object-rest-spread",
+    [
+      "import", {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ]
+}
+```
+
+
 # Available Scripts
 
 In the project directory, you can run:
