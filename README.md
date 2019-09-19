@@ -75,6 +75,9 @@ externals: {
   ]
 }
 ```
+## redux 配置
+
+搭配redux-tool，修复bug，引入main文件
 
 
 # Available Scripts

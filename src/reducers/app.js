@@ -1,11 +1,11 @@
-import { app } from 'actions/ActionTypes.js';
+// import ActionTypes from 'actions/ActionTypes.js';
 
-const initialState = "Hello react starter kit";
+const initialState = {
+  test: 1
+};
 
 function appReducers(state = initialState, action) {
   switch (action.type) {
-      case app.test:
-          return action.data;
       default:
           return state;
   }
