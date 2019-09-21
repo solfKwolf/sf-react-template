@@ -1,0 +1,48 @@
+.main-header-box {
+  position: relative;
+  height: 5rem;
+}
+
+.view-navagation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all .2s;
+  zoom: 1;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  height: 5rem;
+  z-index: 250;
+
+  &.visible {
+    transform: translateZ(0);
+  }
+}
+
+.navigation-main {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 4rem;  
+  cursor: pointer;
+  
+  &:hover {
+    animation: spin infinite 20s linear;
+  }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

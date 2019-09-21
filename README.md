@@ -35,12 +35,13 @@ externals: {
 
 选择UMD版本
 
+'@': paths.appSrc, 'api': paths.appApi, 'actions': paths.appActions,
 
-# antd 
+# antd
 
 实现antd的按需加载
 
-```js
+```javascript
 // 方法一 配置webpack.config.js
 {
     test: /.jsx?$/,
@@ -75,10 +76,59 @@ externals: {
   ]
 }
 ```
+
 ## redux 配置
 
 搭配redux-tool，修复bug，引入main文件
 
+## 动态路由的配置
+
+## CSS Module
+
+使用`react-css-modules`，来加强create-react-app的CSS Module功能。
+
+以上的废弃了，采用`babel-plugin-named-asset-import`,更加便捷
+
+```javascript
+// 在webpack.config.js中配置
+// 1、在babel-loader中的plugin数组中,加入
+[
+  require.resolve("babel-plugin-react-css-modules"),
+  {
+    "exclude": "node_modules",
+    "generateScopedName": "[name]_[local]__[hash:base64:5]",
+    "webpackHotModuleReloading": true,
+    "filetypes": {
+      ".scss": {
+        "syntax": "postcss-scss"
+      }
+    }
+  }
+]
+
+// 在sassModule模块中加入
+{
+  test: sassModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 2,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+      modules: true,
+      localIdentName: "[name]_[local]__[hash:base64:5]",
+    },
+    'sass-loader'
+  ),
+},
+
+// 注意: localIdentName 和 generateScopedName必须是一致的，不然无法生效。
+```
+
+### localIdentName || generateScopedName 
+
+
+## 数据驱动分析
+
+growingIO数据分析平台
 
 # Available Scripts
 
