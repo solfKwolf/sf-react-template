@@ -16,11 +16,9 @@ import Navbar from "@/components/Navbar"
 
 
 function App() {
-  let curLang;
   // 手动监听，有点蠢，能用就行
-  store.subscribe(() => {
-    curLang =  store.getState().app.language
-  })
+  const curLang =  store.getState().app.language
+
   return (
     <Provider store={store}>
       <IntlProvider locale={curLang} messages={languages[curLang]}>
@@ -33,8 +31,8 @@ function App() {
         </BrowserRouter>
       </IntlProvider>
     </Provider>
-
   );
+
 }
 
 export default App;

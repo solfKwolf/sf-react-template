@@ -1,7 +1,15 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
-export function t(text) {
+export function t(id) {
   return (<FormattedMessage
-    id={text}
+    id={id}
+  />)
+}
+
+
+export function tt(id, value) {
+  return (<FormattedMessage
+    id={id}
+    values={value}
   />)
 }
