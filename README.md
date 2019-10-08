@@ -126,6 +126,17 @@ externals: {
 ### localIdentName || generateScopedName 
 
 
+### Styles and Assets
+
+
+## react-router-config 与 lazy loading
+
+所有的路由数组都在`routes/index.js`下控制。`_import`函数会自动导入`views`目录下的jsx,js文件。
+
+
+### hook
+这个还需要慢慢看文档
+
 ## 数据驱动分析
 
 growingIO数据分析平台

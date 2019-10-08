@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { store } from './store'
 
 import { BrowserRouter } from 'react-router-dom'
+import { renderRoutes } from "react-router-config";
+import { routes } from "./routes/index"
 
 import { IntlProvider } from 'react-intl';
 // import en from 'react-intl/locale-data/en';
@@ -23,6 +25,8 @@ function App() {
         <BrowserRouter>
           <div className="app">
             <Navbar />
+            {/* 路由控制 */}
+            {renderRoutes(routes)}
           </div>
         </BrowserRouter>
       </Provider>
