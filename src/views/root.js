@@ -1,16 +1,12 @@
 /** 
- * @desc 路由根路径
+ * @desc 路由根路径, 建議路由控制都在這裡
  */
 import React, { Suspense, Component } from "react";
 import { renderRoutes } from 'react-router-config'
 import { Spin } from 'antd';
 
-// const Root = ({ route }) => (
-//   <Suspense fallback={<Spin />}>
-//     {/* child routes won't render without this */}
-//     {renderRoutes(route.routes)}
-//   </Suspense>
-// );
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 class Root extends Component {
   constructor(props) {
@@ -19,6 +15,11 @@ class Root extends Component {
       isLogin: false // 这个其实应该是属于全局，但是只是测试用的
     }
   }
+
+  componentWillMount () {
+    nprogress.start()
+  }
+
   componentDidMount() {
     // 这里就可以实现路由拦截...
     const path = this.props.location.pathname //获取路由路径
@@ -26,6 +27,7 @@ class Root extends Component {
     // if(path === '/about') {
     //   this.props.history.push({ pathname : '/test'})
     // }
+    nprogress.done()
   }
   render() {
     const {route} = this.props
