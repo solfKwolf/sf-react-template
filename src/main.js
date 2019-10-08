@@ -8,10 +8,7 @@ import { renderRoutes } from "react-router-config";
 import { routes } from "./routes/index"
 
 import { IntlProvider } from 'react-intl';
-// import en from 'react-intl/locale-data/en';
-// import zh from 'react-intl/locale-data/zh';
-
-// addLocaleData([...en, ...zh]);  // 引入多语言环境的数据
+import languages from "@/locale"
 
 import './styles/index.scss'
 
@@ -19,9 +16,14 @@ import Navbar from "@/components/Navbar"
 
 
 function App() {
+  let curLang;
+  // 手动监听，有点蠢，能用就行
+  store.subscribe(() => {
+    curLang =  store.getState().app.language
+  })
   return (
-    <IntlProvider locale='en'>
-      <Provider store={store}>
+    <Provider store={store}>
+      <IntlProvider locale={curLang} messages={languages[curLang]}>
         <BrowserRouter>
           <div className="app">
             <Navbar />
@@ -29,8 +31,8 @@ function App() {
             {renderRoutes(routes)}
           </div>
         </BrowserRouter>
-      </Provider>
-    </IntlProvider>
+      </IntlProvider>
+    </Provider>
 
   );
 }

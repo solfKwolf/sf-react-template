@@ -1,7 +1,7 @@
 // import ActionTypes from 'actions/ActionTypes.js';
-
+import Lockr from "lockr"
 const initialState = {
-  test: 1
+  language: Lockr.get("language") || "zh",
 };
 
 function appReducers(state = initialState, action) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as userAjax from "@/api/user"
+import { t } from "@/utils/i18n"
 
 export default class index extends Component {
   componentDidMount() {
@@ -11,7 +12,7 @@ export default class index extends Component {
   render() {
     return (
       <div>
-        <h2>test</h2>
+        <h2>{t('test')}</h2>
       </div>
     )
   }
