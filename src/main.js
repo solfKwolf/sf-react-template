@@ -7,21 +7,14 @@ import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from "react-router-config";
 import { routes } from "./routes/index"
 
-import { IntlProvider } from 'react-intl';
-import languages from "@/locale"
-
 import './styles/index.scss'
 
 import Navbar from "@/components/Navbar"
 
 
 function App() {
-  // 手动监听，有点蠢，能用就行
-  const curLang =  store.getState().app.language
-
   return (
     <Provider store={store}>
-      <IntlProvider locale={curLang} messages={languages[curLang]}>
         <BrowserRouter>
           <div className="app">
             <Navbar />
@@ -29,10 +22,8 @@ function App() {
             {renderRoutes(routes)}
           </div>
         </BrowserRouter>
-      </IntlProvider>
     </Provider>
   );
-
 }
 
 export default App;

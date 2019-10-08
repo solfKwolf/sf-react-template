@@ -3,7 +3,11 @@
  */
 import React, { Suspense, Component } from "react";
 import { renderRoutes } from 'react-router-config'
+import { connect } from 'react-redux'
 import { Spin } from 'antd';
+
+import { IntlProvider } from 'react-intl';
+import languages from "@/locale"
 
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -16,7 +20,7 @@ class Root extends Component {
     }
   }
 
-  componentWillMount () {
+  componentWillMount() {
     nprogress.start()
   }
 
@@ -30,14 +34,26 @@ class Root extends Component {
     nprogress.done()
   }
   render() {
-    const {route} = this.props
+    const { route, curLang } = this.props
     return (
-      <Suspense fallback={<Spin size="large" />}>
-        {/* child routes won't render without this */}
-        {renderRoutes(route.routes)}
-      </Suspense>
+      <IntlProvider locale={curLang} messages={languages[curLang]}>
+        <Suspense fallback={<Spin size="large" />}>
+
+          {/* child routes won't render without this */}
+          {renderRoutes(route.routes)}
+        </Suspense>
+      </IntlProvider>
+
     )
   }
 }
 
-export default Root;
+const mapStateToProps = (state) => ({
+  curLang: state.app.language
+})
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root)
