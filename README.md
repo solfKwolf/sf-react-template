@@ -44,22 +44,26 @@ externals: {
 ```javascript
 // 方法一 配置webpack.config.js
 {
-    test: /.jsx?$/,
-    exclude: /(node_modules|bower_components)/,
-    use: [{
-        loader: 'babel-loader'
-    }],
-    options: {
-        "plugins": [
-            [
-                "import", {
-                    "libraryName": "antd",
-                    "style": true
-                }
-            ]
-        ]
-    }
-}
+  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  include: paths.appSrc,
+  loader: require.resolve('babel-loader'),
+  options: {
+    customize: require.resolve(
+      'babel-preset-react-app/webpack-overrides'
+    ),
+    
+    plugins: [
+      [
+        "import", {
+            "libraryName": "antd",
+            "style": "css",
+            libraryDirectory: 'es',
+        }
+      ],
+      ...
+    ],
+  },
+},
 
 // 方法二 配置babelrc文件
 {
@@ -140,6 +144,11 @@ externals: {
 ## 数据驱动分析
 
 growingIO数据分析平台
+
+
+## 资源
+
+所有资源都是以页面为区分，再细分
 
 # Available Scripts
 

@@ -1,0 +1,22 @@
+.login-wrap {
+  .login-box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    margin: auto;
+    width: 850px;
+    height: 550px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  .show-pic {
+    flex:1; 
+    height: 100%;
+    background: skyblue;
+  }
+  .form-area {
+    flex: 1;
+  }
+}

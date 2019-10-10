@@ -1,0 +1,10 @@
+// 根据兄弟元素的数量来设置样式
+@mixin n-items($n) {
+  &:first-child:nth-last-child(#{$n}),
+  &:first-child:nth-last-child(#{$n}) ~ & {
+    @content;
+  }
+}
+
+
+

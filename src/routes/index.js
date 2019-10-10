@@ -5,6 +5,12 @@ export  const routes = [
   {
     component: Root,
     routes: [
+      // router
+      {
+        path: "/login",
+        exact: true,
+        component: _import("login")
+      },
       // test
       {
         path: "/test",  
@@ -16,6 +22,12 @@ export  const routes = [
         path: "/about",
         exact: true,
         component: _import("about")
+      },
+      // jacksorbetter
+      {
+        path: "/jacksorbetter",
+        exact: true,
+        component: _import("jacksorbetter")
       },
       // 404
       {

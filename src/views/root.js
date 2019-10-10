@@ -43,7 +43,6 @@ class Root extends Component {
           {renderRoutes(route.routes)}
         </Suspense>
       </IntlProvider>
-
     )
   }
 }
