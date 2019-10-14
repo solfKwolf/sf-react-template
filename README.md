@@ -146,6 +146,22 @@ externals: {
 growingIO数据分析平台
 
 
+## ES7 Decorators
+
+启用 
+```
+npm install --save-dev @babel/plugin-proposal-decorators
+// webpack.config.js
+// 配置
+ plugins: [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ...
+
+```
+
+
+
+
 ## 资源
 
 所有资源都是以页面为区分，再细分

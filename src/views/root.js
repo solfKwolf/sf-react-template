@@ -12,6 +12,15 @@ import languages from "@/locale"
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+const mapStateToProps = (state) => ({
+  curLang: state.app.language
+})
+
+const mapDispatchToProps = {
+
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 class Root extends Component {
   constructor(props) {
     super(props)
@@ -47,12 +56,6 @@ class Root extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  curLang: state.app.language
-})
 
-const mapDispatchToProps = {
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Root)
+export default Root
