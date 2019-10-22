@@ -14,7 +14,7 @@ import Lockr from "lockr";
 // 创建axios实例
 const service = axios.create({
   // baseURL: process.env.NODE_ENV === 'production' ? process.env.BASE_API : '/api/', // api的base_url
-  baseURL: '/api', // api的base_url
+  baseURL: process.env.REACT_APP_BASE_URL, // 改成.env配置文件
   timeout: 15000 // 请求超时时间
 })
 
@@ -67,7 +67,6 @@ service.interceptors.response.use(
   },
   error => {
     console.log('error在这' + error) // for debug
-    message.error(error)
     return Promise.reject(error)
   }
 )

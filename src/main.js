@@ -7,6 +7,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from "react-router-config";
 import { routes } from "./routes/index"
 
+// 挂载 mock api, 如不需要，则请注释
+import "@/mock/index"
+
 import './styles/index.scss'
 
 import Navbar from "@/components/Navbar"

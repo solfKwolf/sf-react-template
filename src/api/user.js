@@ -6,3 +6,11 @@ export function userCoinList() {
     method: "POST",
   })
 } 
+
+
+export function test() {
+  return request({
+    url: "/test",
+    method: "GET",             
+  })
+}
